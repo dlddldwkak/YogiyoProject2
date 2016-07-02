@@ -1,7 +1,6 @@
 package com.example.user.yogiyoproject.categoty;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +42,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryItemHolder> {
         View view  = null;
         switch (viewType) {
             case VIEW_TYPE_ITEM:
-                view = inflater.inflate(R.layout.category_item,parent,false);
+                view = inflater.inflate(R.layout.item_category,parent,false);
                 return new CategoryItemHolder(view);
         }
         return null;

@@ -1,7 +1,9 @@
 package com.example.user.yogiyoproject.categoty;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,7 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.user.yogiyoproject.MainActivity;
 import com.example.user.yogiyoproject.R;
+import com.example.user.yogiyoproject.SecondActivity;
+import com.example.user.yogiyoproject.deliveryList.DeliveryFragment;
 
 
 public class CategoryFragment extends Fragment {
@@ -77,6 +82,8 @@ public class CategoryFragment extends Fragment {
             @Override
             public void OnItemClicked(RecyclerView.ViewHolder holder, View view, CategoryItemData itemData, int position) {
                 Toast.makeText(getContext(), "Click", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), SecondActivity.class);
+                startActivity(intent);
             }
         });
 
