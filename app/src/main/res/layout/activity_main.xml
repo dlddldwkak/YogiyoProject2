@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.yogiyoproject.MainActivity">
+    tools:context="com.example.user.yogiyoproject.MainActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/logo">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_weight="0.85"
+        android:weightSum="1">
 
-        <RelativeLayout
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/main_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/logo"
+            android:padding="10dp"
+            android:layout_weight="0.4">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="@dimen/toolbar_image_width"
-                android:layout_height="@dimen/toolbar_image_height"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/logo" />
 
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <include
-        android:id="@+id/main_search"
-        layout="@layout/view_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/main_toolbar"
-        />
+        <include
+            android:id="@+id/main_search"
+            layout="@layout/view_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/main_search"
-        />
+        android:layout_weight="0.15"
+        android:padding="5dp" />
 
 
-</RelativeLayout>
+</LinearLayout>
