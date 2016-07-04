@@ -26,8 +26,10 @@ public class CategoryItemHolder extends RecyclerView.ViewHolder {
     public CategoryItemHolder(View itemView) {
         super(itemView);
 
+
         image = (ImageView) itemView.findViewById(R.id.category_item_image);
         name = (TextView) itemView.findViewById(R.id.category_item_name);
+
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

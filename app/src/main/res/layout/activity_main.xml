@@ -18,8 +18,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/toolbar_image_width"
+                android:layout_height="@dimen/toolbar_image_height"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/logo" />
 
@@ -40,7 +40,8 @@
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/main_search"></FrameLayout>
+        android:layout_below="@id/main_search"
+        />
 
 
 </RelativeLayout>

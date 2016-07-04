@@ -75,11 +75,22 @@ public class DeliveryFragment extends Fragment {
 
     public void initData() {
         String[] names = getResources().getStringArray(R.array.deliveryList);
-        for (int i = 0; i < names.length; i++) {
-            DeliveryItemData deliveryItemData = new DeliveryItemData();
-            deliveryItemData.setName(names[i]);
-            deliveryItemData.setIconId(R.mipmap.ic_launcher);
-            deliveryAdapter.add(deliveryItemData);
+
+        DeliveryItemData deliveryItemData = new DeliveryItemData();
+        deliveryItemData.setName(names[0]);
+        deliveryItemData.setIconId(R.drawable.list1);
+        deliveryAdapter.add(deliveryItemData);
+
+        DeliveryItemData deliveryItemData1 = new DeliveryItemData();
+        deliveryItemData1.setName(names[1]);
+        deliveryItemData1.setIconId(R.drawable.list2);
+        deliveryAdapter.add(deliveryItemData1);
+
+        for (int i = 2; i < names.length; i++) {
+            DeliveryItemData deliveryItemData2 = new DeliveryItemData();
+            deliveryItemData2.setName(names[i]);
+            deliveryItemData2.setIconId(R.mipmap.ic_launcher);
+            deliveryAdapter.add(deliveryItemData2);
         }
 
     }

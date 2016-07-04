@@ -1,74 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.example.user.yogiyoproject.SecondActivity">
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/second_relativeLayout"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        tools:context="com.example.user.yogiyoproject.SecondActivity">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/second_tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabMode="fixed">
-
-        </android.support.design.widget.TabLayout>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-        <android.support.v4.view.ViewPager
-            android:id="@+id/second_viewPager"
+        <include
+            android:id="@+id/second_tab"
+            layout="@layout/activity_tablayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/second_tabLayout"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    </RelativeLayout>
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/second_appbarLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:layout_height="wrap_content">
 
-            <include
-                android:id="@+id/second_search"
-                layout="@layout/view_search"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/second_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/logo">
-
-                <RelativeLayout
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/second_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:background="@color/logo"
+                    android:minHeight="@dimen/toolbar_image_height"
+                    app:layout_scrollFlags="enterAlwaysCollapsed">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/logo" />
-                </RelativeLayout>
-            </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
-</android.support.design.widget.CoordinatorLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="@dimen/toolbar_image_width"
+                            android:layout_height="@dimen/toolbar_image_height"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/logo" />
+                    </RelativeLayout>
+                </android.support.v7.widget.Toolbar>
+
+                <include
+                    android:id="@+id/second_search"
+                    layout="@layout/view_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/second_toolbar"
+                    app:layout_scrollFlags="scroll|enterAlways" />
+
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

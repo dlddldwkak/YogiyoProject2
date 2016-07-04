@@ -82,7 +82,10 @@ public class CategoryFragment extends Fragment {
             @Override
             public void OnItemClicked(RecyclerView.ViewHolder holder, View view, CategoryItemData itemData, int position) {
                 Toast.makeText(getContext(), "Click", Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(getContext(), SecondActivity.class);
+                intent.putExtra("category", position);
+                Log.d("tag",Integer.toString(position));
                 startActivity(intent);
             }
         });

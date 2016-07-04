@@ -1,9 +1,12 @@
 package com.example.user.yogiyoproject;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.example.user.yogiyoproject.deliveryList.DeliveryFragment;
 import com.example.user.yogiyoproject.tabView.ChickenTabView;
@@ -17,12 +20,22 @@ public class SecondActivity extends AppCompatActivity {
     ViewPager viewPager;
     SecondAdapter adapter;
 
+    int position;
+
     DeliveryFragment deliveryFragmentfragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        position = getIntent().getIntExtra("category", 0);
+        Log.d("tag", Integer.toString(position));
+        /*if(position!=0)
+
+        else
+            Log.d("tag","category_name is null");
+*/
         tabLayout = (TabLayout) findViewById(R.id.second_tabLayout);
 
         viewPager = (ViewPager) findViewById(R.id.second_viewPager);
@@ -34,14 +47,22 @@ public class SecondActivity extends AppCompatActivity {
         initTab();
     }
 
-    public void initTab(){
-        ChickenTabView chickenTabView= new ChickenTabView(getApplicationContext());
-        tabLayout.addTab(tabLayout.newTab().setCustomView(chickenTabView),0);
+    public void initTab() {
+
+
+        ChickenTabView chickenTabView = new ChickenTabView(getApplicationContext());
         ChinaFoodTabView chinaFoodTabView = new ChinaFoodTabView(getApplicationContext());
-        tabLayout.addTab(tabLayout.newTab().setCustomView(chinaFoodTabView),1);
         SideFoodTabView sideFoodTabView = new SideFoodTabView(getApplicationContext());
-        tabLayout.addTab(tabLayout.newTab().setCustomView(sideFoodTabView),2);
         KoreaFoodTabView koreaFoodTabView = new KoreaFoodTabView(getApplicationContext());
-        tabLayout.addTab(tabLayout.newTab().setCustomView(koreaFoodTabView),3);
+
+        View[] tabViews = {chickenTabView, chinaFoodTabView, sideFoodTabView, koreaFoodTabView};
+        for (int i = 0; i < tabViews.length; i++) {
+
+            if (i == position)
+                tabLayout.addTab(tabLayout.newTab().setCustomView(tabViews[i]), i, true);
+            else
+                tabLayout.addTab(tabLayout.newTab().setCustomView(tabViews[i]), i);
+        }
+
     }
 }

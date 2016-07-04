@@ -12,17 +12,15 @@
 
         <ImageView
             android:id="@+id/delivery_item_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/delivery_image_width"
+            android:layout_height="@dimen/delivery_image_height"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.4"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/delivery_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
             android:gravity="center_vertical"
             android:text="12333333"
             android:textAppearance="?android:attr/textAppearanceLarge" />
